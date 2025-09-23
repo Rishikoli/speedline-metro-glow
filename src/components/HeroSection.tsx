@@ -4,7 +4,7 @@ import heroTrain from "@/assets/hero-train.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background pt-16">{/* Added pt-16 for navbar spacing */}
       {/* Background Pattern */}
       <div className="absolute inset-0 rail-pattern opacity-20"></div>
       
