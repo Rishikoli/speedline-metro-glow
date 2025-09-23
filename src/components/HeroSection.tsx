@@ -39,7 +39,7 @@ const HeroSection = () => {
             </h1>
             
             <h2 className="text-2xl md:text-4xl font-semibold text-foreground/90 leading-relaxed max-w-4xl mx-auto">
-              AI-Powered Train Induction Planning
+              Multiple Agents Train Induction Planning
             </h2>
             
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
