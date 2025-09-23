@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Speedline Design System - Futuristic Metro Transit Theme
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark Mode Base Colors */
+    --background: 230 25% 7%;  /* Deep navy background */
+    --foreground: 200 100% 95%;  /* Bright white text */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 230 20% 12%;  /* Dark card background */
+    --card-foreground: 200 100% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 230 20% 12%;
+    --popover-foreground: 200 100% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Electric Blue Theme */
+    --primary: 195 100% 50%;  /* Bright electric blue */
+    --primary-foreground: 230 25% 7%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 195 100% 15%;  /* Dark blue secondary */
+    --secondary-foreground: 195 100% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 230 15% 20%;
+    --muted-foreground: 200 20% 70%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 100% 50%;  /* Neon cyan accent */
+    --accent-foreground: 230 25% 7%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 230 15% 25%;
+    --input: 230 15% 25%;
+    --ring: 195 100% 50%;
 
-    --radius: 0.5rem;
+    /* Speedline Brand Colors */
+    --electric-blue: 195 100% 50%;  /* Main brand blue */
+    --neon-cyan: 180 100% 50%;      /* Accent cyan */
+    --deep-navy: 230 25% 7%;        /* Background */
+    --metro-rail: 240 30% 15%;      /* Rail track color */
+
+    /* Glow Effects */
+    --glow-blue: 195 100% 50%;
+    --glow-cyan: 180 100% 50%;
+
+    /* Gradients */
+    --gradient-electric: linear-gradient(135deg, hsl(195, 100%, 50%), hsl(180, 100%, 50%));
+    --gradient-rail: linear-gradient(90deg, hsl(230, 25%, 7%), hsl(240, 30%, 15%), hsl(230, 25%, 7%));
+    --gradient-hero: linear-gradient(135deg, hsl(230, 25%, 7%) 0%, hsl(195, 100%, 15%) 50%, hsl(230, 25%, 7%) 100%);
+
+    /* Shadows & Glows */
+    --shadow-electric: 0 0 20px hsl(195, 100%, 50% / 0.3);
+    --shadow-neon: 0 0 30px hsl(180, 100%, 50% / 0.4);
+    --shadow-card: 0 10px 30px hsl(230, 25%, 7% / 0.5);
+
+    /* Animation Timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +127,168 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Speedline Animation System */
+@layer utilities {
+  /* Glow Effects */
+  .glow-electric {
+    box-shadow: var(--shadow-electric);
+    border: 1px solid hsl(var(--electric-blue) / 0.3);
+  }
+
+  .glow-neon {
+    box-shadow: var(--shadow-neon);
+    border: 1px solid hsl(var(--neon-cyan) / 0.3);
+  }
+
+  .glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+
+  /* Motion Effects */
+  .motion-blur {
+    filter: blur(0px);
+    transition: filter var(--transition-smooth);
+  }
+
+  .motion-blur:hover {
+    filter: blur(1px);
+  }
+
+  /* Rail Track Pattern */
+  .rail-pattern {
+    background: var(--gradient-rail);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .rail-pattern::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -100%;
+    right: -100%;
+    height: 2px;
+    background: repeating-linear-gradient(
+      90deg,
+      hsl(var(--electric-blue)) 0px,
+      hsl(var(--electric-blue)) 20px,
+      transparent 20px,
+      transparent 40px
+    );
+    animation: rail-move 3s linear infinite;
+  }
+
+  /* Data Stream Effect */
+  .data-stream {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--electric-blue) / 0.1) 25%,
+      hsl(var(--neon-cyan) / 0.2) 50%,
+      hsl(var(--electric-blue) / 0.1) 75%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: data-flow 4s ease-in-out infinite;
+  }
+
+  /* Hero Motion Lines */
+  .motion-lines {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .motion-lines::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--electric-blue) / 0.3) 50%,
+      transparent 100%
+    );
+    animation: speed-lines 2s ease-in-out infinite;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(var(--electric-blue) / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(var(--electric-blue) / 0.6), 0 0 60px hsl(var(--neon-cyan) / 0.3);
+  }
+}
+
+@keyframes rail-move {
+  0% {
+    transform: translateX(-40px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes data-flow {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes speed-lines {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes float-up {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes counter-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
