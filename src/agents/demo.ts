@@ -2,10 +2,10 @@ import { kochiMetroAPI } from './api';
 import { simulationEngine } from './simulation';
 
 /**
- * Demo script showcasing the Kochi Metro Trainset Induction Optimization System
+ * Demo script showcasing the SpeedLine Trainset Induction Optimization System
  */
 async function runDemo() {
-  console.log('🚇 Kochi Metro Trainset Induction Optimization System Demo\n');
+  console.log('🚇 SpeedLine Trainset Induction Optimization System Demo\n');
   console.log('=' .repeat(60));
 
   try {

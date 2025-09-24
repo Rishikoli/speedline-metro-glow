@@ -198,7 +198,7 @@ export class WhatIfSimulationEngine {
   }
 
   /**
-   * Generate common simulation scenarios for Kochi Metro
+   * Generate common simulation scenarios for SpeedLine
    */
   static getCommonScenarios(): WhatIfScenario[] {
     return [
