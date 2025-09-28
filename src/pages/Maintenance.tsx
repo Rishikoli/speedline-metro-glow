@@ -415,12 +415,24 @@ const Maintenance = () => {
                 <CardDescription>Plan and schedule maintenance activities</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-center py-12">
-                  <Calendar className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">Scheduling Coming Soon</h3>
-                  <p className="text-muted-foreground">
-                    Maintenance scheduling interface will be available here
-                  </p>
+                <div className="space-y-6">
+                  <div className="text-center py-6 bg-muted/50 rounded-lg border">
+                    <Calendar className="h-12 w-12 text-primary mx-auto mb-4" />
+                    <h2 className="text-2xl font-bold mb-2">Maintenance Schedule</h2>
+                    <p className="text-lg text-muted-foreground mb-6">
+                      Plan and schedule maintenance activities
+                    </p>
+                    
+                    <div className="max-w-2xl mx-auto p-6 bg-background rounded-lg border">
+                      <div className="flex items-center justify-center space-x-2 mb-6">
+                        <Calendar className="h-5 w-5 text-muted-foreground" />
+                        <h3 className="text-lg font-semibold">Scheduling Coming Soon</h3>
+                      </div>
+                      <p className="text-muted-foreground text-center">
+                        Maintenance scheduling interface will be available here
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </CardContent>
             </Card>
